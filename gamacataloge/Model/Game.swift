@@ -12,7 +12,7 @@ struct  GamesResults: Decodable {
     let results: [Games]
 }
 
-struct Games: Decodable, Identifiable{
+struct Games: Decodable, Identifiable {
     let id: Int
     let name: String
     let background_image: String!
@@ -21,7 +21,7 @@ struct Games: Decodable, Identifiable{
     let genres: [Genres]!
 }
 
-struct Game: Decodable, Identifiable{
+struct Game: Decodable, Identifiable {
     let id: Int
     let name: String
     let background_image: String
@@ -39,7 +39,13 @@ struct Ratings: Decodable, Identifiable {
     let percent: Double
 }
 
-struct Genres: Decodable, Identifiable{
+struct  GenresResults: Decodable {
+    let results: [Genres]
+}
+
+struct Genres: Decodable, Identifiable {
     let id: Int
     let name: String
+    let slug: String
+
 }

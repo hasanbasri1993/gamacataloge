@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B81AE7989298B26DD073A66 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6B81ABEF7038996F068F48C2 /* .swiftlint.yml */; };
 		71385FD024C05D6E005DB04B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71385FCF24C05D6E005DB04B /* AboutView.swift */; };
-		71385FD224C06A51005DB04B /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71385FD124C06A51005DB04B /* SearchBar.swift */; };
+		71385FD224C06A51005DB04B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71385FD124C06A51005DB04B /* SearchView.swift */; };
+		71385FD424C090A7005DB04B /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71385FD324C090A7005DB04B /* LoadingIndicator.swift */; };
 		717ACDEF24BEA4880077467F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717ACDEE24BEA4880077467F /* Api.swift */; };
 		717ACDF924BEF88B0077467F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717ACDF824BEF88B0077467F /* ImageLoader.swift */; };
 		717ACDFB24BF28C50077467F /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717ACDFA24BF28C50077467F /* RemoteImage.swift */; };
@@ -17,6 +19,8 @@
 		717ACE0124BF6B810077467F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717ACE0024BF6B810077467F /* Game.swift */; };
 		717ACE0524BF7DAD0077467F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717ACE0424BF7DAD0077467F /* DetailView.swift */; };
 		717ACE0924C003EF0077467F /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717ACE0824C003EF0077467F /* GameRow.swift */; };
+		71A47A7D24D50E4200575284 /* GenreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A47A7C24D50E4200575284 /* GenreRow.swift */; };
+		71A47A8324D72E4600575284 /* GenresRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A47A8224D72E4600575284 /* GenresRow.swift */; };
 		71E8B37B24B223E900976939 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8B37A24B223E900976939 /* AppDelegate.swift */; };
 		71E8B37D24B223E900976939 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8B37C24B223E900976939 /* SceneDelegate.swift */; };
 		71E8B37F24B223E900976939 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8B37E24B223E900976939 /* MainView.swift */; };
@@ -26,8 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B81ABEF7038996F068F48C2 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		71385FCF24C05D6E005DB04B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		71385FD124C06A51005DB04B /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		71385FD124C06A51005DB04B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		71385FD324C090A7005DB04B /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		717ACDEE24BEA4880077467F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		717ACDF824BEF88B0077467F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		717ACDFA24BF28C50077467F /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		717ACE0024BF6B810077467F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		717ACE0424BF7DAD0077467F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		717ACE0824C003EF0077467F /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
+		71A47A7C24D50E4200575284 /* GenreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRow.swift; sourceTree = "<group>"; };
+		71A47A8224D72E4600575284 /* GenresRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresRow.swift; sourceTree = "<group>"; };
 		71E8B37724B223E900976939 /* gamacataloge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gamacataloge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E8B37A24B223E900976939 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71E8B37C24B223E900976939 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +79,7 @@
 			children = (
 				71E8B37924B223E900976939 /* gamacataloge */,
 				71E8B37824B223E900976939 /* Products */,
+				6B81ABEF7038996F068F48C2 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,7 +133,10 @@
 				717ACE0424BF7DAD0077467F /* DetailView.swift */,
 				717ACE0824C003EF0077467F /* GameRow.swift */,
 				71385FCF24C05D6E005DB04B /* AboutView.swift */,
-				71385FD124C06A51005DB04B /* SearchBar.swift */,
+				71385FD124C06A51005DB04B /* SearchView.swift */,
+				71385FD324C090A7005DB04B /* LoadingIndicator.swift */,
+				71A47A7C24D50E4200575284 /* GenreRow.swift */,
+				71A47A8224D72E4600575284 /* GenresRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +151,7 @@
 				71E8B37324B223E900976939 /* Sources */,
 				71E8B37424B223E900976939 /* Frameworks */,
 				71E8B37524B223E900976939 /* Resources */,
+				71A47A8124D6F41A00575284 /* swiftlint */,
 			);
 			buildRules = (
 			);
@@ -194,26 +207,51 @@
 				71E8B38724B223EA00976939 /* LaunchScreen.storyboard in Resources */,
 				71E8B38424B223EA00976939 /* Preview Assets.xcassets in Resources */,
 				71E8B38124B223EA00976939 /* Assets.xcassets in Resources */,
+				6B81AE7989298B26DD073A66 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71A47A8124D6F41A00575284 /* swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		71E8B37324B223E900976939 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71385FD224C06A51005DB04B /* SearchBar.swift in Sources */,
+				71385FD224C06A51005DB04B /* SearchView.swift in Sources */,
 				717ACE0924C003EF0077467F /* GameRow.swift in Sources */,
 				717ACE0124BF6B810077467F /* Game.swift in Sources */,
 				717ACDFF24BF31E90077467F /* Image.swift in Sources */,
 				71E8B37B24B223E900976939 /* AppDelegate.swift in Sources */,
 				71385FD024C05D6E005DB04B /* AboutView.swift in Sources */,
+				71A47A8324D72E4600575284 /* GenresRow.swift in Sources */,
 				717ACE0524BF7DAD0077467F /* DetailView.swift in Sources */,
 				717ACDFD24BF319B0077467F /* ImageCache.swift in Sources */,
 				717ACDFB24BF28C50077467F /* RemoteImage.swift in Sources */,
+				71A47A7D24D50E4200575284 /* GenreRow.swift in Sources */,
 				717ACDF924BEF88B0077467F /* ImageLoader.swift in Sources */,
+				71385FD424C090A7005DB04B /* LoadingIndicator.swift in Sources */,
 				71E8B37D24B223E900976939 /* SceneDelegate.swift in Sources */,
 				717ACDEF24BEA4880077467F /* Api.swift in Sources */,
 				71E8B37F24B223E900976939 /* MainView.swift in Sources */,
@@ -357,6 +395,7 @@
 				DEVELOPMENT_TEAM = 2A6FN7SK9P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = gamacataloge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,6 +416,7 @@
 				DEVELOPMENT_TEAM = 2A6FN7SK9P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = gamacataloge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
