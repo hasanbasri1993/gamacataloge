@@ -10,6 +10,11 @@ import SwiftUI
 
 struct GamesFavorite: View {
 
+
+    var gameFavProvider: GameFav = {
+        return GameFav()
+    }()
+
     @ObservedObject var api = Api()
 
     init() {
@@ -39,21 +44,32 @@ struct GamesFavorite: View {
                             .font(.custom("Ubuntu-Bold", size: 30))
                             .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                             .padding(.top, 80)
-                    ForEach(api.games) { game in
-                        NavigationLink(destination: DetailView(id_game: game.id)) {
-                            GameRow(game: game)
-                        }.buttonStyle(PlainButtonStyle())
+
+                    if api.games.count > 0 {
+                        ForEach(api.games) { game in
+                            NavigationLink(destination: DetailView(id_game: game.id)) {
+                                GameRow(game: game)
+                            }.buttonStyle(PlainButtonStyle())
+                        }
+                    } else {
+                        Text("Not yet favorite games selected")
+                                .font(.custom("Ubuntu-Bold", size: 15))
+                                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                     }
+
                 }
             }
         }
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
-                    self.api.fetchData(genre: "action")
+                    self.gameFavProvider.getAllGamesFav() { (result) in
+                        DispatchQueue.main.async {
+                            self.api.games = result
+                            self.api.isLoading = false
+                        }
+                    }
                 }
-
     }
-
 }
 
 class GamesFavorite_Previews: PreviewProvider {

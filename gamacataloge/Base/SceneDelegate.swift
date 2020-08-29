@@ -58,33 +58,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-      let container = NSPersistentContainer(name: "GamesFavorite")
-      container.loadPersistentStores { _, error in
-        if let error = error as NSError? {
-          // You should add your own error handling code here.
-          fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
-      }
-      return container
-    }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext() {
-      let context = persistentContainer.viewContext
-      if context.hasChanges {
-        do {
-          try context.save()
-        } catch {
-          // The context couldn't be saved.
-          // You should add your own error handling here.
-          let nserror = error as NSError
-          fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-      }
-    }
 
 }
