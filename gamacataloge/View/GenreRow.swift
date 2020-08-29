@@ -20,8 +20,8 @@ struct GenreRow: View {
                 RoundedRectangle(cornerRadius: 5, style: .continuous)
                     .fill(LinearGradient(
                         gradient: Gradient(stops: [
-                            .init(color: Color(#colorLiteral(red: 0.24938100576400757, green: 0.8747169375419617, blue: 0.6220977902412415, alpha: 1)), location: 0),
-                            .init(color: Color(#colorLiteral(red: 0.24313725531101227, green: 0.8352941274642944, blue: 0.5960784554481506, alpha: 1)), location: 1)]),
+                            .init(color: Color(#colorLiteral(red: 0.1568627506494522, green: 0.3764705955982208, blue: 0.32549020648002625, alpha: 1)), location: 0),
+                            .init(color: Color(#colorLiteral(red: 0.1568627506494522, green: 0.3764705955982208, blue: 0.32549020648002625, alpha: 1)), location: 1)]),
                         startPoint: UnitPoint(x: 0, y: 0),
                         endPoint: UnitPoint(x: 0, y: 1)))
                     .frame(width: wd(word: label), height: 35)
@@ -31,7 +31,8 @@ struct GenreRow: View {
                     .frame(width: wd(word: label), height: 35)
             }
             Text(label)
-                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))).multilineTextAlignment(.center)
+                .font(.custom("Ubuntu-Medium", size: 12))
+                .foregroundColor(Color(#colorLiteral(red: 0.239215686917305, green: 0.8352941274642944, blue: 0.5960784554481506, alpha: 1))).multilineTextAlignment(.center)
         }
     }
     

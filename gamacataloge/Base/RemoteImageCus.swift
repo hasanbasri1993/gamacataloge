@@ -1,5 +1,5 @@
 //
-//  RemoteImage.swift
+//  RemoteImageCus.swift
 //  gamacataloge
 //
 //  Created by Hasan Basri on 15/07/20.
@@ -8,13 +8,14 @@
 
 import SwiftUI
 
-struct RemoteImage<Placeholder: View>: View {
+struct RemoteImageCus<Placeholder: View>: View {
     @ObservedObject private var loader: ImageLoader
     private let placeholder: Placeholder?
     private let configuration: (Image) -> Image
 
     init(url: URL, cache: ImageCache? = nil, placeholder: Placeholder? = nil, configuration: @escaping (Image) -> Image = { $0 }) {
-        loader = ImageLoader(url: url, cache: cache)
+        loader = ImageLoader(url: url)
+       // loader = ImageLoader(url: url, cache: cache)
         self.placeholder = placeholder
         self.configuration = configuration
     }

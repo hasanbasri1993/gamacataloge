@@ -25,7 +25,7 @@ struct AboutView: View {
                     Spacer()
                 }
                 Text("About Me")
-                    .font(.system(size: 30, weight: .bold))
+                    .font(.custom("Ubuntu-Bold", size: 30))
                     .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                     .padding(.top, 80)
                     .padding(.leading, 15)
@@ -50,9 +50,11 @@ struct AboutView: View {
                                 .clipShape(Circle())
                             
                             Text("Hasan Basri")
-                                .font(.largeTitle)
+                                .font(.custom("Ubuntu-Bold", size: 28))
                                 .foregroundColor(Color.white)
-                            Text("Web Developer").font(.caption)
+                            Text("Web Developer")
+                                .font(.custom("Ubuntu-Bold", size: 12))
+                                .font(.caption)
                                 .foregroundColor(Color.white)
                         }
                     }

@@ -30,7 +30,7 @@ struct SearchView: View {
             VStack(alignment: .leading) {
 
                 Text("Search Games")
-                .font(.system(size: 30, weight: .bold))
+                .font(.custom("Ubuntu-Bold", size: 30))
                 .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                 .padding(.top, 80)
                 .padding(.leading, 15)
@@ -38,6 +38,7 @@ struct SearchView: View {
                     TextField("Start typing",
                               text: $searchText,
                               onCommit: { self.performSearch() })
+                        .font(.custom("Ubuntu-Reguler", size: 15))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }.padding(.horizontal)
 

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Hasan Basri. All rights reserved.
 //
 
-import Foundation
-
 struct  GamesResults: Decodable {
     let results: [Games]
 }
@@ -15,19 +13,19 @@ struct  GamesResults: Decodable {
 struct Games: Decodable, Identifiable {
     let id: Int
     let name: String
-    let background_image: String!
-    let released: String!
-    let rating: Float!
-    let genres: [Genres]!
+    let background_image: String?
+    let released: String?
+    let rating: Float?
+    let genres: [Genres]
 }
 
 struct Game: Decodable, Identifiable {
     let id: Int
     let name: String
-    let background_image: String
+    let background_image: String?
     let released: String
     let rating: Float
-    let description_raw: String
+    let description_raw: String?
     let genres: [Genres]
     let ratings: [Ratings]
 }
