@@ -76,10 +76,9 @@ struct ContentView: View {
 
                         NavigationLink(destination: GamesFavorite()) {
                             HStack {
-                                Image(systemName: "star.circle").imageScale(.large)
+                                Image(systemName: "heart").imageScale(.large)
                                 Text("Favorite")
                                         .font(.custom("Ubuntu-Bold", size: 12))
-
                             }
                         }
                                 .padding(.leading)
@@ -158,11 +157,4 @@ class MainView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-
-    #if DEBUG
-    @objc class func injected() {
-        UIApplication.shared.windows.first?.rootViewController =
-                UIHostingController(rootView: ContentView())
-    }
-    #endif
 }

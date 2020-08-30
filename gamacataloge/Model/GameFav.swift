@@ -10,8 +10,6 @@ import CoreData
 
 class GameFav {
 
-    // MARK: - Core Data stack
-
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "GamesFavorite")
         container.loadPersistentStores { _, error in
@@ -23,22 +21,6 @@ class GameFav {
         return container
     }()
 
-    // MARK: - Core Data Saving support
-
-    func saveContext() {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // The context couldn't be saved.
-                // You should add your own error handling here.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
     private func newTaskContext() -> NSManagedObjectContext {
         let taskContext = persistentContainer.newBackgroundContext()
         taskContext.undoManager = nil
@@ -47,8 +29,7 @@ class GameFav {
         return taskContext
     }
 
-
-    func getAllGamesFav(completion: @escaping (_ games: [Games]) -> ()) {
+    func getAllGamesFav(completion:  @escaping ([Games]) -> ()) {
         let taskContext = newTaskContext()
         taskContext.perform {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "GamesFav")
@@ -57,12 +38,12 @@ class GameFav {
                 var games: [Games] = []
                 for result in results {
                     let game = Games(
-                            id: Int(result.value(forKeyPath: "id") as? Int16 ?? 1),
-                            name: result.value(forKeyPath: "name") as? String ?? "  ",
-                            background_image: (result.value(forKey: "background_image") as? String),
-                            released: (result.value(forKey: "released") as? String),
-                            rating: (result.value(forKey: "rating") as? Float),
-                            genres: [Genres(id: 0, name: "", slug: "")])
+                        id: Int(result.value(forKeyPath: "id") as? Int16 ?? 1),
+                        name: result.value(forKeyPath: "name") as? String ?? "  ",
+                        background_image: (result.value(forKey: "background_image") as? String),
+                        released: (result.value(forKey: "released") as? String),
+                        rating: (result.value(forKey: "rating") as? Float),
+                        genres: [Genres(id: 0, name: "", slug: "")])
 
                     games.append(game)
                 }
@@ -88,7 +69,7 @@ class GameFav {
         }
     }
 
-    func setGamesFav(_ id: Int, _ name: String, _ background_image: String, _ released: String, _ rating: Float, completion: @escaping () -> ()) {
+    func setGamesFav(_ id: Int, _ name: String, _ background_image: String, _ released: String, _ rating: Float, completion: @escaping (String) -> ()) {
         let taskContext = newTaskContext()
         self.isFav(id) { (result) in
             DispatchQueue.main.async {
@@ -99,8 +80,8 @@ class GameFav {
                         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
                         batchDeleteRequest.resultType = .resultTypeCount
                         if let batchDeleteResult = try? taskContext.execute(batchDeleteRequest) as? NSBatchDeleteResult,
-                           batchDeleteResult.result != nil {
-                            completion()
+                            batchDeleteResult.result != nil {
+                            completion("deleted")
                         }
                     }
                 } else {
@@ -115,7 +96,7 @@ class GameFav {
 
                             do {
                                 try taskContext.save()
-                                completion()
+                                completion("saved")
                             } catch let error as NSError {
                                 print("Could not save. \(error), \(error.userInfo)")
                             }
@@ -126,8 +107,6 @@ class GameFav {
             }
         }
 
-
     }
-
 
 }

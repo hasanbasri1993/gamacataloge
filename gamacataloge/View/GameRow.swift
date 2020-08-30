@@ -52,7 +52,7 @@ struct GameRow: View {
                         .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                         .padding(.top)
 
-                    Text("Release Date: " + dddd(tgl: self.game.released ?? "02-20-2000"))
+                    Text("Release Date: " + dddd(tgl: self.game.released ?? "2000-01-01"))
                         .font(.custom("Ubuntu-Bold", size: 12))
                         .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
 

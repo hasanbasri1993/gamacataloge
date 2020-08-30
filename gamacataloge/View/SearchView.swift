@@ -10,8 +10,8 @@ import SwiftUI
 
 struct SearchView: View {
 
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var api = Api()
-
     @State private var searchText: String = ""
     @State var show = false
     @State var txt = ""
@@ -22,18 +22,18 @@ struct SearchView: View {
         ZStack {
             LinearGradient(
                 gradient: Gradient(stops: [
-                    .init(color: Color(#colorLiteral(red: 0.13333334028720856, green: 0.20392157137393951, blue: 0.23529411852359772, alpha: 1)), location: 0.0007918074261397123),
-                    .init(color: Color(#colorLiteral(red: 0.12156862765550613, green: 0.18039216101169586, blue: 0.2078431397676468, alpha: 1)), location: 1)]),
+                        .init(color: Color(#colorLiteral(red: 0.13333334028720856, green: 0.20392157137393951, blue: 0.23529411852359772, alpha: 1)), location: 0.0007918074261397123),
+                        .init(color: Color(#colorLiteral(red: 0.12156862765550613, green: 0.18039216101169586, blue: 0.2078431397676468, alpha: 1)), location: 1)]),
                 startPoint: UnitPoint(x: -0.08938116066092056, y: 0.56955788402664),
                 endPoint: UnitPoint(x: 0.6099469288521624, y: 1.3496640680055174))
 
             VStack(alignment: .leading) {
 
                 Text("Search Games")
-                .font(.custom("Ubuntu-Bold", size: 30))
-                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
-                .padding(.top, 80)
-                .padding(.leading, 15)
+                    .font(.custom("Ubuntu-Bold", size: 30))
+                    .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                    .padding(.top, 80)
+                    .padding(.leading, 15)
                 HStack {
                     TextField("Start typing",
                               text: $searchText,
@@ -44,25 +44,39 @@ struct SearchView: View {
 
                 if api.isLoading {
                     LoadingIndicator()
-                    .frame(width: 50, height: 50)                }
-
-                if api.games.isEmpty != true {
+                        .frame(width: 50, height: 50)
+                } else {
                     List {
-                        ForEach(api.games) { game in
-                            NavigationLink(destination: DetailView(id_game: game.id)) {
-                                GameRow(game: game)
+                        if api.games.count < 1 && searchText.count > 2 {
+                            Text("Not found")
+                                .font(.custom("Ubuntu-Bold", size: 15))
+                                .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                        } else {
+                            ForEach(api.games) { game in
+                                NavigationLink(destination: DetailView(id_game: game.id)) {
+                                    GameRow(game: game)
+                                }
                             }
                         }
-
                     }
                 }
                 Spacer()
 
             }
         }
-        .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            self.api.isLoading  = false
+            .edgesIgnoringSafeArea(.all)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(
+                        leading: Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.left")
+                                    .foregroundColor(Color.white)
+                                    .shadow(color: .black, radius: 3)
+
+                        }))
+            .onAppear {
+                self.api.isLoading = false
         }
     }
 
@@ -78,6 +92,6 @@ struct SearchView: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-       SearchView()
+        SearchView()
     }
 }

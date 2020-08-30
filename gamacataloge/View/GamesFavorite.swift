@@ -10,11 +10,10 @@ import SwiftUI
 
 struct GamesFavorite: View {
 
-
     var gameFavProvider: GameFav = {
         return GameFav()
     }()
-
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var api = Api()
 
     init() {
@@ -56,13 +55,23 @@ struct GamesFavorite: View {
                                 .font(.custom("Ubuntu-Bold", size: 15))
                                 .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                     }
-
                 }
             }
         }
                 .edgesIgnoringSafeArea(.all)
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(
+                        leading: Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.left")
+                                    .foregroundColor(Color.white)
+                                    .shadow(color: .black, radius: 3)
+
+                        })
+                )
                 .onAppear {
-                    self.gameFavProvider.getAllGamesFav() { (result) in
+                    self.gameFavProvider.getAllGamesFav() { result in
                         DispatchQueue.main.async {
                             self.api.games = result
                             self.api.isLoading = false
@@ -76,11 +85,4 @@ class GamesFavorite_Previews: PreviewProvider {
     static var previews: some View {
         GamesFavorite()
     }
-/*
-    #if DEBUG
-    @objc class func injected() {
-        UIApplication.shared.windows.first?.rootViewController =
-                UIHostingController(rootView: GamesFavorite())
-    }
-    #endif*/
 }
