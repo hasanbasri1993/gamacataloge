@@ -10,9 +10,15 @@ import SwiftUI
 import RemoteImage
 
 func dddd (tgl: String) -> String {
+    var tgl1 = ""
+    if tgl == "" {
+        tgl1 = "2000-01-01"
+    } else {
+        tgl1 = tgl
+    }
     let inputFormatter = DateFormatter()
     inputFormatter.dateFormat = "yyyy-MM-dd"
-    let showDate = inputFormatter.date(from: tgl)
+    let showDate = inputFormatter.date(from: tgl1)
     inputFormatter.dateFormat = "d MMMM yyyy"
     let resultString = inputFormatter.string(from: showDate!)
     return resultString

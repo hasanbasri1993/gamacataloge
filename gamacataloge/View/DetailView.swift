@@ -120,9 +120,12 @@ struct DetailView: View {
                 Button(action: {
                     self.performFavorite(data: self.api)
                 }, label: {
-                    Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .foregroundColor(.white)
-                        .shadow(color: .black, radius: 3)
+                    if !self.api.isLoading {
+                        Image(systemName: isFavorite ? "heart.fill" : "heart")
+                            .foregroundColor(.white)
+                            .shadow(color: .black, radius: 3)
+                    }
+
                 })
 
             )

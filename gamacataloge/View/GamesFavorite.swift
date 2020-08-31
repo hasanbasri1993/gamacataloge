@@ -13,7 +13,6 @@ struct GamesFavorite: View {
     var gameFavProvider: GameFav = {
         return GameFav()
     }()
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var api = Api()
 
     init() {
@@ -59,17 +58,6 @@ struct GamesFavorite: View {
             }
         }
                 .edgesIgnoringSafeArea(.all)
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(
-                        leading: Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Image(systemName: "arrow.left")
-                                    .foregroundColor(Color.white)
-                                    .shadow(color: .black, radius: 3)
-
-                        })
-                )
                 .onAppear {
                     self.gameFavProvider.getAllGamesFav() { result in
                         DispatchQueue.main.async {

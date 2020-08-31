@@ -38,7 +38,7 @@ class GameFav {
                 var games: [Games] = []
                 for result in results {
                     let game = Games(
-                        id: Int(result.value(forKeyPath: "id") as? Int16 ?? 1),
+                        id: Int(result.value(forKeyPath: "id") as? Int64 ?? 1),
                         name: result.value(forKeyPath: "name") as? String ?? "  ",
                         background_image: (result.value(forKey: "background_image") as? String),
                         released: (result.value(forKey: "released") as? String),
